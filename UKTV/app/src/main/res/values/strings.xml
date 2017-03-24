@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">UKTV</string>
+    <string name="welcome_str">你点歌罢！</string>
+
+    <string-array name="music_names_array">
+        <item>陈奕迅 - 葡萄成熟时</item>
+        <item>陈奕迅 - 倾城</item>
+        <item>肖邦 - 降E大调夜曲</item>
+        <item>五月天 - 知足</item>
+        <item>张国荣 - 我</item>
+        <item>ZZZ - 都是靡靡之音呐 呵呵 只要为你活一天</item>
+
+    </string-array>
+
+    <!--<string-array name="music_url_array">-->
+    <!--<item>http://onaszq2yn.bkt.clouddn.com/audio/%E9%99%88%E5%A5%95%E8%BF%85%20-%20%E8%91%A1%E8%90%84%E6%88%90%E7%86%9F%E6%97%B6.mp3</item>-->
+    <!--<item>http://onaszq2yn.bkt.clouddn.com/audio/%E9%99%88%E5%A5%95%E8%BF%85%20-%20%E5%80%BE%E5%9F%8E.mp3</item>-->
+    <!--</string-array>-->
+
+</resources>
