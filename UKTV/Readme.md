@@ -17,8 +17,8 @@ It fetches music file from [qiniu.com](qiniu.com), a file server, so it needs ne
 
 # TODO
 
-- [] remove the "TextView"
-- [] display `.lrc` lyrics
-- [] pack, sign and upload a `.apk` release
-- [] RQ want to change the icon of this app
+- [ ] remove the "TextView"
+- [ ] display `.lrc` lyrics
+- [ ] pack, sign and upload a `.apk` release
+- [ ] RQ want to change the icon of this app
 
