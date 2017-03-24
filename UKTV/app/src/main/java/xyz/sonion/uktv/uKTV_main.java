@@ -1,13 +1,16 @@
 package xyz.sonion.uktv;
 
+import android.media.AudioManager;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
-import android.widget.TextView;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -15,6 +18,8 @@ public class uKTV_main extends AppCompatActivity implements AdapterView.OnItemSe
 
     // ID -> Music
     private Map<Integer, Music> musicRecord;
+    private Music currentPlayingOrToPlay;
+    private MediaPlayer mediaPlayer = new MediaPlayer();
 
     public uKTV_main() {
         // TODO 优雅地放到资源xml里……当然这玩意还是存数据库、网络获取吧……
@@ -50,13 +55,33 @@ public class uKTV_main extends AppCompatActivity implements AdapterView.OnItemSe
         // https://developer.android.com/reference/android/widget/ArrayAdapter.html#ArrayAdapter(android.content.Context,%20int,%20java.util.List<T>)
 
         spinner.setOnItemSelectedListener(this);
+
+        Button musicChangeButton = (Button) findViewById(R.id.changeMusicButton);
+        musicChangeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String url = currentPlayingOrToPlay.getDirectURL(); // your URL here
+                mediaPlayer.stop();
+                mediaPlayer = new MediaPlayer();
+                mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
+                try {
+                    mediaPlayer.setDataSource(url);
+                    mediaPlayer.prepare(); // might take long! (for buffering, etc)
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                mediaPlayer.start();
+                System.out.println("start " + currentPlayingOrToPlay.getDisplayName());
+            }
+        });
     }
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         Music music = musicRecord.get(position);
-        TextView textView = (TextView) findViewById(R.id.urlTextView);
-        textView.setText(music.getDirectURL());
+        currentPlayingOrToPlay = music;
+//        TextView textView = (TextView) findViewById(R.id.urlTextView);
+//        textView.setText(music.getDirectURL());
     }
 
     @Override
