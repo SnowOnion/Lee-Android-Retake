@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">UKTV</string>
+    <string name="app_name">uKTV</string>
     <string name="welcome_str">你点歌罢！</string>
 
     <string-array name="music_names_array">

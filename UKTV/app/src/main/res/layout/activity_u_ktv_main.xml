@@ -24,21 +24,32 @@
         android:layout_marginTop="18dp"
         android:id="@+id/musicSelectionSpinner" />
 
-    <TextView
-        android:text="TextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/musicSelectionSpinner"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="8dp"
-        android:id="@+id/urlTextView" />
-
     <Button
         android:text="切歌"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/urlTextView"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="30dp"
-        android:id="@+id/changeMusicButton" />
+        android:layout_marginTop="21dp"
+        android:id="@+id/changeMusicButton"
+        android:layout_marginStart="23dp"
+        android:layout_below="@+id/musicSelectionSpinner"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:text="停止"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:id="@+id/stopMusicButton"
+        android:layout_alignBaseline="@+id/changeMusicButton"
+        android:layout_alignBottom="@+id/changeMusicButton"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:text="暂停 / 继续"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/pauseMusicButton"
+        android:layout_alignBaseline="@+id/stopMusicButton"
+        android:layout_alignBottom="@+id/stopMusicButton"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>

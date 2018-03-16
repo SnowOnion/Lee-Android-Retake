@@ -52,8 +52,6 @@ public class uKTV_main extends AppCompatActivity implements AdapterView.OnItemSe
         spinner.setAdapter(adapter);
 
         // TODO 那么怎么从代码里绑定一个list上去呢……这更关键
-        // https://developer.android.com/reference/android/widget/ArrayAdapter.html#ArrayAdapter(android.content.Context,%20int,%20java.util.List<T>)
-
         spinner.setOnItemSelectedListener(this);
 
         Button musicChangeButton = (Button) findViewById(R.id.changeMusicButton);
@@ -71,10 +69,35 @@ public class uKTV_main extends AppCompatActivity implements AdapterView.OnItemSe
                     e.printStackTrace();
                 }
                 mediaPlayer.start();
+
+                Button musicStopButton = (Button) findViewById(R.id.stopMusicButton);
                 System.out.println("start " + currentPlayingOrToPlay.getDisplayName());
             }
         });
+
+        Button musicStopButton = (Button) findViewById(R.id.stopMusicButton);
+        musicStopButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mediaPlayer.stop();
+//                Button musicPauseButton= (Button) findViewById(R.id.pauseMusicButton);
+//                musicPauseButton.setText("继续");
+            }
+        });
+
+        Button musicPauseButton = (Button) findViewById(R.id.pauseMusicButton);
+        musicPauseButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mediaPlayer.isPlaying()) {
+                    mediaPlayer.pause();
+                } else {
+                    mediaPlayer.start();
+                }
+            }
+        });
     }
+
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
